@@ -6,12 +6,13 @@ import { Buttons } from '../presentational/Buttons';
 import { Grid, GridItem } from '../presentational/Grid';
 
 const Container = styled.div`
-    width: 30vw;
-    height: 60vh;
+    width: 50vmin;
+    height: 90vmin;
     background: black;
     display: flex;
     flex-direction: column;
     padding: 12px;
+    font-family: 'Montserrat', sans-serif;
 `
 
 export const Calculator = (props) => {
@@ -20,7 +21,7 @@ export const Calculator = (props) => {
 
     return (
         <Container>
-            <Display total={total} />
+            <Display total={total} height="30%" />
             <Grid columnTemplate="auto auto auto auto" rowTemplate="auto auto auto auto auto">
                 <Button fullWidth value={"C"} category="modifier"></Button>
                 <Button fullWidth value={"-"} category="modifier"></Button>
@@ -42,7 +43,7 @@ export const Calculator = (props) => {
                     <Button fullWidth value={0}></Button>
                 </GridItem>
                 <Button fullWidth value={'.'}></Button>
-                <Button fullWidth value={'='}></Button>
+                <Button fullWidth value={'='} category="operator"></Button>
             </Grid>
         </Container>
     )

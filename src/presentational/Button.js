@@ -8,6 +8,7 @@ const Btn = styled.button`
     color: white;
     height: 100%;
     font-weight: 700;
+    font-size: calc(8px + 1vmin);
 
     &.operator {
         background: orange;
