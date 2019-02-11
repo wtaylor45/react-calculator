@@ -11,7 +11,7 @@ const Div = styled.div`
     height: ${props => props.height};
 `
 
-export const Display = ({value, height}) => 
+export const Display = ({children, height}) => 
     <Div height={height}>
-        {value | 0}
+        {children}
     </Div>
