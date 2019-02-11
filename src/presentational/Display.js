@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Div = styled.div`
     width: 100%;
-    font-size: calc(24px + 5vmin);
+    font-size: calc(48px + 2vmin);
     padding-top: 10%;
     color: white;
     background: black;
@@ -11,7 +11,7 @@ const Div = styled.div`
     height: ${props => props.height};
 `
 
-export const Display = ({total, height}) => 
+export const Display = ({value, height}) => 
     <Div height={height}>
-        {total}
+        {value | 0}
     </Div>
