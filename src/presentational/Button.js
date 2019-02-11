@@ -4,10 +4,19 @@ import styled from 'styled-components';
 const Btn = styled.button`
     width: ${props => props.fullWidth ? `100%` : `50px`};
     border: none;
-    /* border-radius: 50%; */
     background: #444;
     color: white;
     height: 100%;
+    font-weight: 700;
+
+    &.operator {
+        background: orange;
+    }
+
+    &.modifier {
+        background: gray;
+        color: black;
+    }
 `
 
 export const Button = ({ value, onClick, fullWidth, category }) =>
