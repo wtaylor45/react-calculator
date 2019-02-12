@@ -4,7 +4,7 @@ import { Display } from '../presentational/Display';
 import { Button } from '../presentational/Button';
 import { Buttons } from '../presentational/Buttons';
 import { Grid, GridItem } from '../presentational/Grid';
-import math from 'mathjs';
+import * as math from 'mathjs';
 
 const Container = styled.div`
     width: 50vmin;
@@ -20,12 +20,18 @@ export const Calculator = (props) => {
     const [operations, setOperations] = useState('');
 
     const addToOperations = (e) => {
-        switch(e.target.value){
+        switch (e.target.value) {
             case 'C':
                 setOperations('');
                 break;
             case '=':
-                setOperations(math.eval(operations).toString());
+                try {
+                    setOperations(math.eval(operations).toString());
+                } catch {
+                    setOperations('Error');
+                }
+                break;
+            case undefined:
                 break;
             default:
                 setOperations(operations.concat(e.target.value));
@@ -38,8 +44,9 @@ export const Calculator = (props) => {
             <Display height='30%'>{operations}</Display>
             <Buttons onClick={addToOperations} height='70%'>
                 <Grid columnTemplate='auto auto auto auto' rowTemplate='auto auto auto auto auto'>
-                    <Button fullWidth value={'C'} category='modifier'></Button>
-                    <Button fullWidth value={'-'} category='modifier'></Button>
+                    <GridItem colSpan='2'>
+                        <Button fullWidth value={'C'} category="modifier"></Button>
+                    </GridItem>
                     <Button fullWidth value={'%'} category='modifier'></Button>
                     <Button fullWidth value={'/'} category='operator'></Button>
                     <Button fullWidth value={'7'}></Button>
