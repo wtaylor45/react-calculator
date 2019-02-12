@@ -13,5 +13,5 @@ const Div = styled.div`
 
 export const Display = ({children, height}) => 
     <Div height={height}>
-        {children}
+        {children || "0"}
     </Div>
