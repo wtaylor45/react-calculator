@@ -18,8 +18,11 @@ const Container = styled.div`
 
 export const Calculator = (props) => {
     const [operations, setOperations] = useState('');
+    const [error, setError] = useState(false);
 
     const addToOperations = (e) => {
+        if(error) setError(false);
+        
         switch (e.target.value) {
             case 'C':
                 setOperations('');
@@ -28,7 +31,8 @@ export const Calculator = (props) => {
                 try {
                     setOperations(math.eval(operations).toString());
                 } catch {
-                    setOperations('Error');
+                    setOperations('');
+                    setError(true);
                 }
                 break;
             case undefined:
@@ -41,7 +45,7 @@ export const Calculator = (props) => {
 
     return (
         <Container>
-            <Display height='30%'>{operations}</Display>
+            <Display height='30%' error={error}>{operations}</Display>
             <Buttons onClick={addToOperations} height='70%'>
                 <Grid columnTemplate='auto auto auto auto' rowTemplate='auto auto auto auto auto'>
                     <GridItem colSpan='2'>
