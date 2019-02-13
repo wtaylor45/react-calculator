@@ -22,7 +22,7 @@ export const Calculator = (props) => {
 
     const addToOperations = (e) => {
         if(error) setError(false);
-        
+
         switch (e.target.value) {
             case 'C':
                 setOperations('');

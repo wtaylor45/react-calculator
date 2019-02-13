@@ -3,15 +3,17 @@ import styled from 'styled-components';
 
 const Div = styled.div`
     width: 100%;
-    font-size: calc(48px + 2vmin);
     padding-top: 10%;
+    font-size: calc(48px + 2vmin);
     color: white;
     background: black;
-    text-align: right;
     height: ${props => props.height};
+    display: flex;
+    justify-content: flex-end;
 `
 
-export const Display = ({children, height, error}) => 
-    <Div height={height}>
+export const Display = ({ children, height, error }) => {
+    return <Div height={height}>
         {error ? "Error" : (children || "0")}
     </Div>
+}
