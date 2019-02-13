@@ -29,7 +29,9 @@ export const Calculator = (props) => {
                 break;
             case '=':
                 try {
-                    setOperations(math.eval(operations).toString());
+                    let result = math.eval(operations);
+                    result = math.format(result, { precision: 10 })
+                    setOperations(result.toString());
                 } catch {
                     setOperations('');
                     setError(true);
