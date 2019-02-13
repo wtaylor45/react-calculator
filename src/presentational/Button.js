@@ -20,5 +20,6 @@ const Btn = styled.button`
     }
 `
 
-export const Button = ({ value, onClick, fullWidth, category }) =>
+export const Button = React.memo(({ value, onClick, fullWidth, category }) =>
     <Btn onClick={onClick} value={value} fullWidth={fullWidth} className={category}>{value}</Btn>
+)
